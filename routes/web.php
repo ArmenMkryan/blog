@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\FlightController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\countryController;
 
@@ -67,3 +67,7 @@ Route::get('countries', [
 ]);
 
 
+Route::get('flights', [
+    FlightController::class,
+    'index'
+]);
