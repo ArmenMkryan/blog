@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use 
 
 class countryController extends Controller
 {
-    public function index()
-    {
-        $countries = DB::table('countries')
-        ->where('region_name', 'Europe')
-        ->orWhere('region_name', 'Asia')
-        ->get();
-        echo '<pre>';
-
-
-        dd($countries);
+    public function collection_class(){
+        //Create a new collection using Collection class
+        $collection1 = new Collection([67, 34, 89, 56, 23]);
+        //dump the variable content in the browser
+        dd($collection1);
+        }
 
 
 
@@ -25,5 +22,5 @@ class countryController extends Controller
 
 
 
-    }
+
 }
