@@ -37,4 +37,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    public function index(Request $request ){
+            $user = Auth::user();
+            echo $user?->name;
+            $param = $request->all();
+            dd($request->isMethod('get'));
+    }
 }
