@@ -1,11 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\FlightController;
 use App\Http\Controllers\countryController;
-
+use App\Http\Controllers\CollectionController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +25,9 @@ use App\Http\Controllers\countryController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', function () {
-    return view('greeting', ['name' => 'James']);
-});
+// Route::get('/', function () {
+//     return view('greeting', ['name' => 'James']);
+// });
 
 
 Route::get('/foo', function () {
@@ -67,3 +71,49 @@ Route::get('countries', [
 ]);
 
 
+Route::get('flights', [
+    FlightController::class,
+    'index'
+]);
+
+
+Route::get(
+    'collect1',
+    [CollectionController::class, 'collection_class']
+    );
+Route::get(
+    'collect2',
+    [CollectionController::class, 'collect_method']
+    );
+
+
+    Route::get(
+        'src_collection',
+        [CollectionController::class, 'search_data']
+        );
+
+        Route::get(
+            'filter_collection',
+            [CollectionController::class, 'filter_data']
+            );
+            Route::get(
+                'sort_collection',
+                [CollectionController::class, 'sort_data']
+                );
+                Route::get(
+                    'key_collection',
+                    [CollectionController::class, 'read_keys']
+                    );
+
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/users', [UserController::class, 'index']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('add-blog-post-form', [PostController::class, 'index']);
+Route::post('store-form', [PostController::class, 'store']);
+Log::debug('An informational message.');
