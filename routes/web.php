@@ -8,11 +8,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CacheController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\countryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\IdentityController;
 use App\Http\Controllers\CollectionController;
 
 /*
@@ -134,3 +137,8 @@ Route::get('session/remove', [SessionController::class, 'deleteSessionData']);
 
 Route::get('cache/put', [CacheController::class, 'put']);
 Route::get('cache/get', [CacheController::class, 'get']);
+
+Route::get('/identity',[UserController::class,'index']);
+
+Route::get('/brand',[BrandController::class,'index']);
+Route::get('/product',[ProductController::class,'index']);
