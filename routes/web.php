@@ -14,6 +14,7 @@ use App\Http\Controllers\FlightController;
 use App\Http\Controllers\countryController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\CarsContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,3 +135,5 @@ Route::get('session/remove', [SessionController::class, 'deleteSessionData']);
 
 Route::get('cache/put', [CacheController::class, 'put']);
 Route::get('cache/get', [CacheController::class, 'get']);
+
+Route::get('/cars', [CarsContoller::class, 'index']);
