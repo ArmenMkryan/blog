@@ -17,4 +17,25 @@ class ProductController extends Controller
       echo '---------------------------------------------'.'<br />';
      }
 }
+public function store()
+{
+
+   $brand_id = 1;
+   $product = Product::Create([
+     'title' => 'Shoes Futsal Adidas',
+     'price' => '230',
+     'brand_id' => $brand_id
+   ]);
+// we can use method sync for update or delete $category_id
+ $product->save();
+ dd($product->title); exit;
+}
+public function showData()
+{
+   $product = Product::with(['categories'])->get();
+   dd($product->toArray());
+}
+
+
+
 }
