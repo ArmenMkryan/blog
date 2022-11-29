@@ -17,6 +17,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\IdentityController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\CarsContoller;
 
 use App\Http\Controllers\FileUpload;
 
@@ -150,3 +151,4 @@ Route::get('/product/show-data',[ProductController::class,'showData']);
 
 Route::get('/upload-file', [FileUpload::class, 'createForm']);
 Route::post('/upload-file', [FileUpload::class, 'fileUpload'])->name('fileUpload');
+
